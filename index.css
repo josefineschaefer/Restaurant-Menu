@@ -1,0 +1,11 @@
+body {
+    background-image: url("lunch.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    background-color: rgb(245 243 240 / 50%);
+    padding: 30px;
+    border-radius: 5%;
+}
