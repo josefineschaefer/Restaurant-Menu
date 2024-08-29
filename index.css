@@ -1,11 +1,66 @@
 body {
-    background-image: url("lunch.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("lunch.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 main {
-    background-color: rgb(245 243 240 / 50%);
-    padding: 30px;
-    border-radius: 5%;
+  background-color: rgb(253 253 253 / 90%);
+  padding: 30px;
+  border-radius: 5%;
+  color: #787878;
+}
+
+.banner {
+  background-color: #a44a3f;
+  color: white;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  position: relative;
+  :after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid rgb(253 253 253 / 90%);
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+  }
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 25px solid rgb(253 253 253 / 90%);
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #a7c98e;
+}
+
+h1 {
+  color: #f19a77;
+}
+
+li,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
