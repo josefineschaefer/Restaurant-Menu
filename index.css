@@ -27,15 +27,20 @@ main {
   color: white;
   height: 60px;
   width: 300px;
-  text-align:center;
+  text-align: center;
   clip-path: polygon(100% 0%, 280px 50%, 100% 100%, 0% 100%, 21px 50%, 0% 0%);
 }
 
 h1,
-h2,
-h3 {
-  text-transform: uppercase;
+h2 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
 }
+
 
 h2 {
   color: #a7c98e;
@@ -43,6 +48,12 @@ h2 {
 
 h1 {
   color: #f19a77;
+}
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+
 }
 
 li,
@@ -54,5 +65,7 @@ h3 {
 }
 
 li {
-    list-style-type: none; 
+  list-style-type: none;
+  letter-spacing: 1px;
+  line-height: 2;
 }
