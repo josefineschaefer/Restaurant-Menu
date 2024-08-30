@@ -8,13 +8,13 @@ main {
   display: block;
   background-color: rgb(253 253 253 / 90%);
   border-radius: 2%;
-  padding: 20px;
+  padding: 70px;
   color: #787878;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 60px;
-  width: 50%;
+  width: 30%;
   position: relative;
 }
 
@@ -33,27 +33,24 @@ main {
 
 h1,
 h2 {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: .2rem;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
+h1 {
+  color: #f19a77;
+  text-align: center;
+}
 
 h2 {
   color: #a7c98e;
 }
 
-h1 {
-  color: #f19a77;
-}
-
 h3 {
   text-transform: uppercase;
-  letter-spacing: .2rem;
-
+  letter-spacing: 0.2rem;
 }
 
 li,
@@ -64,8 +61,9 @@ h3 {
   font-style: normal;
 }
 
-li {
-  list-style-type: none;
+ul {
+  list-style: none;
+  padding-left: 0;
   letter-spacing: 1px;
   line-height: 2;
 }
