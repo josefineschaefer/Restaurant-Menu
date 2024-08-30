@@ -8,15 +8,28 @@ main {
   display: block;
   background-color: rgb(253 253 253 / 90%);
   border-radius: 2%;
-  padding: 70px;
+  padding: 20px; 
   color: #787878;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 60px;
-  width: 30%;
   position: relative;
 }
+
+@media (min-width: 500px) {
+  main {
+    padding: 40px;
+    width: 50%;
+  }
+}
+
+@media (min-width: 750px) {
+    main {
+      padding: 70px;
+      max-width: 389px;
+    }
+  }
 
 .banner {
   position: absolute;
