@@ -8,7 +8,7 @@ main {
   display: block;
   background-color: rgb(253 253 253 / 90%);
   border-radius: 2%;
-  padding: 20px; 
+  padding: 20px;
   color: #787878;
   margin-left: auto;
   margin-right: auto;
@@ -26,11 +26,11 @@ main {
 }
 
 @media (min-width: 750px) {
-    main {
-      padding: 70px;
-      max-width: 389px;
-    }
+  main {
+    padding: 70px;
+    max-width: 389px;
   }
+}
 
 .banner {
   position: absolute;
