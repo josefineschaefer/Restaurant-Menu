@@ -17,6 +17,7 @@ main {
   position: relative;
 }
 
+/* attempt to make things responsive:  */
 @media (min-width: 500px) {
   main {
     padding: 40px;
