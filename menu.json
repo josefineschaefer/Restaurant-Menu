@@ -1,0 +1,7 @@
+
+{
+    "Starters":["Vegan Nuggets", "Minty Pea & Potatoe Soup", "Avocado Panzanella"],
+    "Mains":["Vegan Wellington", "Vegan Mac & Cheese", "Vegan Shepherds Pie"],
+    "Salads": ["Vegan Caesar Salad", "Vegan Greek Salad", "Vegan Caprese Salad"], 
+    "Desserts":["Vegan Chocolate Cake", "Vegan Lemon Tart", "Vegan Ice Cream"]
+}
