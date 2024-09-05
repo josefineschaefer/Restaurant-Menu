@@ -27,6 +27,9 @@ main {
 }
 
 .banner {
+  display:flex; 
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 0;
   right: 0;
@@ -57,13 +60,17 @@ h2 {
   color: #4E6F35;
 }
 
-h3 {
+.lunch-menu {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-li,
-h3 {
+li {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
