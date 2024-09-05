@@ -1,23 +1,17 @@
 body {
-  background-image: url("lunch.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("lunch.jpg") no-repeat center/cover;
 }
 
 main {
   display: block;
-  background-color: rgb(253 253 253 / 90%);
+  background-color: rgba(253, 253, 253, 0.9);
   border-radius: 2%;
   padding: 20px;
   color: #787878;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  margin-bottom: 60px;
+  margin: 40px auto 60px;
   position: relative;
 }
 
-/* attempt to make things responsive:  */
 @media (min-width: 500px) {
   main {
     padding: 40px;
@@ -36,7 +30,8 @@ main {
   position: absolute;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  bottom: -30px;
+  margin: auto;
   background-color: #a44a3f;
   color: white;
   height: 60px;
