@@ -1,32 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch('menu.json')
-        .then(response => response.json())
+document.addEventListener("DOMContentLoaded", function() {
+    // URL to get breakfast meals
+    const breakfastUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=breakfast';
+    const veganUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegan';
+    const vegetarianUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian'; 
+    const dessertUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert';
+
+
+    // Fetch data from the API
+    fetch(breakfastUrl)
+        .then(response => response.json()) // Parse the JSON data
         .then(data => {
-            // Get the menu content container
-            const menuContent = document.getElementById('menu-content');
-
-            // Iterate through the categories in the JSON
-            for (const category in data) {
-                // Create and append a heading for each category
-                const heading = document.createElement('h2');
-                heading.textContent = category;
-                menuContent.appendChild(heading);
-
-                // Create a list for the menu items
-                const list = document.createElement('ul');
-
-                // Add each item in the category to the list
-                data[category].forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = item;
-                    list.appendChild(listItem);
-                });
-
-                // Append the list to the menu content container
-                menuContent.appendChild(list);
-            }
+            // Call a function to display the data on the page
+            displayCategoryMeals('Breakfast', data.meals);
         })
         .catch(error => {
-            console.error('Error loading menu:', error);
+            console.error('Error fetching breakfast meals:', error);
+        });
+
+    fetch(veganUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayCategoryMeals('Vegan Meals', data.meals);
+        })
+        .catch(error => {
+            console.error('Error fetching Vegan meals:', error);
+        });
+
+    fetch(vegetarianUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayCategoryMeals('Vegetarian Meals', data.meals);
+        })
+        .catch(error => {
+            console.error('Error fetching Vegetarian meals:', error);
+        });
+
+  fetch(dessertUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayCategoryMeals('Desserts', data.meals);
+        })
+        .catch(error => {
+            console.error('Error fetching Desserts:', error);
         });
 });
+
+// Function to display meals under a specific category with a headline
+function displayCategoryMeals(categoryName, meals) {
+    const menuContent = document.getElementById('menu-content');
+
+    // Create and append category headline
+    const categoryHeadline = document.createElement('h2');
+    categoryHeadline.textContent = categoryName;
+    menuContent.appendChild(categoryHeadline);
+
+    // Limit meals to the first 3
+    const limitedMeals = meals.slice(0, 3); 
+
+    // Display meals in the category
+    limitedMeals.forEach(meal => {
+        const mealElement = document.createElement('div');
+        mealElement.innerHTML = `
+        <ul>
+            <li>${meal.strMeal}</li>
+        </ul>
+        `;
+        menuContent.appendChild(mealElement);
+    });
+}
