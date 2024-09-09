@@ -1,32 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch('menu.json')
-        .then(response => response.json())
+document.addEventListener("DOMContentLoaded", function() {
+    // URL to get breakfast meals
+    const breakfastUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=breakfast';
+
+    // Fetch data from the API
+    fetch(breakfastUrl)
+        .then(response => response.json()) // Parse the JSON data
         .then(data => {
-            // Get the menu content container
-            const menuContent = document.getElementById('menu-content');
-
-            // Iterate through the categories in the JSON
-            for (const category in data) {
-                // Create and append a heading for each category
-                const heading = document.createElement('h2');
-                heading.textContent = category;
-                menuContent.appendChild(heading);
-
-                // Create a list for the menu items
-                const list = document.createElement('ul');
-
-                // Add each item in the category to the list
-                data[category].forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = item;
-                    list.appendChild(listItem);
-                });
-
-                // Append the list to the menu content container
-                menuContent.appendChild(list);
-            }
+            // Call a function to display the data on the page
+            displayMeals(data.meals);
         })
         .catch(error => {
-            console.error('Error loading menu:', error);
+            console.error('Error fetching breakfast meals:', error);
         });
 });
+
+// Function to display the breakfast meals on the page
+function displayMeals(meals) {
+    const menuContent = document.getElementById('menu-content');
+
+    meals.forEach(meal => {
+        const mealElement = document.createElement('div');
+        mealElement.innerHTML = `
+        <ul>
+            <li>${meal.strMeal}</li>
+        </ul>
+        `;
+        menuContent.appendChild(mealElement);
+    });
+}
