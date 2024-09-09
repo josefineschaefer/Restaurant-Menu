@@ -59,12 +59,14 @@ function displayCategoryMeals(categoryName, meals) {
 
     // Display meals in the category
     limitedMeals.forEach(meal => {
-        const mealElement = document.createElement('div');
+        const mealElement = document.createElement('ul');
         mealElement.innerHTML = `
-        <ul>
-            <li>${meal.strMeal}</li>
-        </ul>
-        `;
+        
+            <li>${meal.strMeal}
+            <div class="tooltiptext">${meal.strMeal} - This is a delicious meal! (Replace this with description from API)</div>
+        </li>
+            `;
+        mealElement.classList.add('menu-item');
         menuContent.appendChild(mealElement);
     });
 }
