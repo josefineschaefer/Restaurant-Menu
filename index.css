@@ -60,6 +60,20 @@ h2 {
   color: #4E6F35;
 }
 
+h4 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2px;
+}
+
+.ingredients {
+  font-family: "Playfair Display", serif;
+  font-size: 10px;
+  line-height: normal;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -73,21 +87,22 @@ li {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  cursor: help;
 }
 
 .tooltiptext {
   visibility: hidden;
-  width: 200px; /* Increased width to fit longer descriptions */
-  background-color: black;
-  color: #fff;
-  text-align: center;
+  width: 200px;
+  background-color: #f7f4d3;
+  color: #000000;
+  text-align: left;
   border-radius: 6px;
-  padding: 5px;
+  padding: 20px;
 
   /* Tooltip positioning */
   position: absolute;
-  bottom: 100%; /* Position above the li element */
-  left: 50%;
+  bottom: -100%;
+  left: 300px;
   margin-left: -100px;
   z-index: 1;
   opacity: 0;
@@ -108,5 +123,12 @@ li:hover .tooltiptext {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.thumbImage{
+  width: 60px;
+  height: auto;
+  border-radius: 5%;
+  margin-bottom: 10px;
 }
 
