@@ -1,32 +1,29 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const breakfastUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=breakfast';
-    const veganUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegan';
-    const vegetarianUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian'; 
-    const dessertUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert';
+    // Define category URLs
+    const categories = [
+        { name: 'Breakfast', url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=breakfast' },
+        { name: 'Vegan Meals', url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegan' },
+        { name: 'Vegetarian Meals', url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian' },
+        { name: 'Desserts', url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert' }
+    ];
 
-    // Fetch data for each category and display on the page
-    fetch(breakfastUrl)
-        .then(response => response.json())
-        .then(data => displayCategoryMeals('Breakfast', data.meals))
-        .catch(error => console.error('Error fetching breakfast meals:', error));
-
-    fetch(veganUrl)
-        .then(response => response.json())
-        .then(data => displayCategoryMeals('Vegan Meals', data.meals))
-        .catch(error => console.error('Error fetching vegan meals:', error));
-
-    fetch(vegetarianUrl)
-        .then(response => response.json())
-        .then(data => displayCategoryMeals('Vegetarian Meals', data.meals))
-        .catch(error => console.error('Error fetching vegetarian meals:', error));
-
-    fetch(dessertUrl)
-        .then(response => response.json())
-        .then(data => displayCategoryMeals('Desserts', data.meals))
-        .catch(error => console.error('Error fetching dessert meals:', error));
+    // Fetch and display meals for each category
+    categories.forEach(category => {
+        fetchMeals(category.name, category.url);
+    });
 });
 
-// Function to display meals under a specific category with a headline
+// Function to fetch meals for a specific category and display them
+function fetchMeals(categoryName, categoryUrl) {
+    fetch(categoryUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayCategoryMeals(categoryName, data.meals);
+        })
+        .catch(error => console.error(`Error fetching ${categoryName} meals:`, error));
+}
+
+// Function to display meals under a specific category with a headline and hover effect
 function displayCategoryMeals(categoryName, meals) {
     const menuContent = document.getElementById('menu-content');
 
@@ -60,7 +57,6 @@ function displayCategoryMeals(categoryName, meals) {
         });
     });
 }
-
 // Function to fetch full meal details
 function fetchMealDetails(mealId, tooltipElement) {
     const detailUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
@@ -71,21 +67,24 @@ function fetchMealDetails(mealId, tooltipElement) {
             const meal = data.meals[0];
             const ingredients = [];
 
-            // Loop through ingredients and measures (up to 20)
-            for (let i = 1; i <= 20; i++) {
+            // Loop through ingredients and measures (up to 10)
+            for (let i = 1; i <= 10; i++) {
                 const ingredient = meal[`strIngredient${i}`];
-                const measure = meal[`strMeasure${i}`];
                 if (ingredient && ingredient.trim()) {
                     ingredients.push(`${ingredient}`);
                 }
             }
 
+            // Join ingredients into a comma-separated list
+            const ingredientsText = ingredients.join(', ');
+
             // Update tooltip with full meal details
             tooltipElement.innerHTML = `
                 <h4>${meal.strMeal}</h4>
                 <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="100">
-                <ul class="ingredients">${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                <p class="ingredients">${ingredientsText}</p>
             `;
         })
         .catch(error => console.error('Error fetching meal details:', error));
 }
+

@@ -70,7 +70,6 @@ h4 {
 
 .ingredients {
   font-family: "Playfair Display", serif;
-  font-size: 10px;
   line-height: normal;
 }
 
@@ -98,12 +97,12 @@ li {
   text-align: left;
   border-radius: 6px;
   padding: 20px;
-
+  
   /* Tooltip positioning */
   position: absolute;
-  bottom: -100%;
-  left: 300px;
-  margin-left: -100px;
+  bottom: 100%; /* Display tooltip above the item */
+  left: 80%;
+  transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
@@ -113,7 +112,6 @@ li:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
-
 
 .lunch-menu {
   text-transform: uppercase;
