@@ -81,7 +81,7 @@ function fetchMealDetails(mealId, tooltipElement) {
             // Update tooltip with full meal details
             tooltipElement.innerHTML = `
                 <h4>${meal.strMeal}</h4>
-                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="100">
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="100" class="thumbImage";>
                 <p class="ingredients">${ingredientsText}</p>
             `;
         })
