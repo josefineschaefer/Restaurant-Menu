@@ -5,7 +5,7 @@ body {
 main {
   display: block;
   background-color: rgba(253, 253, 253, 0.9);
-  border-radius: 2%;
+  border-radius: 15px;
   padding: 20px;
   color: #787878;
   margin: 40px auto 60px;
@@ -60,6 +60,59 @@ h2 {
   color: #4E6F35;
 }
 
+h4 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2px;
+}
+
+.ingredients {
+  font-family: "Playfair Display", serif;
+  line-height: normal;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+li {
+  position: relative; /* Ensures the tooltip is positioned relative to the li */
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  cursor: help;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #f7f4d3;
+  color: #000000;
+  text-align: left;
+  border-radius: 6px;
+  padding: 20px;
+  font-size: 0.7rem;
+  /* Tooltip positioning */
+  position: absolute;
+  bottom: -10%;
+  left: 110%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+li:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 .lunch-menu {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -70,16 +123,11 @@ h2 {
   font-style: normal;
 }
 
-li {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.thumbImage{
+  width: 60px;
+  height: auto;
+  border-radius: 15px;
+  padding: 10px;
+  float: left;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  letter-spacing: 1px;
-  line-height: 2;
-}
